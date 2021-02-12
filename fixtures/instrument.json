@@ -2,7 +2,7 @@
   {
     "fields": {
       "name": "HiSeq1500 SNL177",
-      "facility": 1
+      "facility": 2
     },
     "model": "tardis_portal.instrument",
     "pk": null
@@ -10,7 +10,7 @@
   {
     "fields": {
       "name": "HiSeq3000 J00154",
-      "facility": 1
+      "facility": 2
     },
     "model": "tardis_portal.instrument",
     "pk": null
@@ -18,7 +18,7 @@
   {
     "fields": {
       "name": "MiSeq M04416",
-      "facility": 1
+      "facility": 2
     },
     "model": "tardis_portal.instrument",
     "pk": null
