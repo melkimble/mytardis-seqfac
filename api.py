@@ -3,6 +3,8 @@ from tastypie.exceptions import Unauthorized
 
 #from tardis.tardis_portal import api as tardis_api
 
+import tardis.tardis_portal.api
+
 from tardis.tardis_portal.models.experiment import Experiment
 from tardis.tardis_portal.models.parameters import ParameterName
 from tardis.tardis_portal.models.access_control import ObjectACL
