@@ -1,6 +1,9 @@
 from __future__ import print_function, absolute_import
 import logging
-from celery.task import task
+
+#from celery.task import task
+from tardis.celery import tardis_app
+from tardis.tardis_portal import tasks
 
 from django.conf import settings
 from django.db import transaction
@@ -20,8 +23,7 @@ except Exception:
 
 logger = logging.getLogger(__name__)
 
-
-@task(name='sequencing_facility.delete_all_trashed')
+@tardis_app.task(name='tardis_portal.delete_all_trashed')
 def delete_all_trashed_task():
     trash_username = getattr(settings, 'TRASH_USERNAME', '__trashman__')
     trashman_id = User.objects.get(username=trash_username).id

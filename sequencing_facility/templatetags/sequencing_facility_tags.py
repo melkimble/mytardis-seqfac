@@ -18,5 +18,5 @@ def experiment_end_time_badge(experiment):
     # We don't render via Mustache+Pystache - Django templating will do
     # return render_mustache('badges/end_time_badge', c)
 
-    return loader.render_to_string('badges/end_time_badge.html', c)
+    return loader.render_to_string('sequencing_facility/badges/end_time_badge.html', c)
 

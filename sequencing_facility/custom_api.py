@@ -18,14 +18,15 @@ from tardis.tardis_portal.models import Experiment, ExperimentParameter, \
     Dataset, ExperimentParameterSet, DatasetParameterSet, \
     License, UserProfile, UserAuthentication, Token
 
-from tardis.tardis_portal.api import MyTardisAuthentication
+#from tardis.tardis_portal.api import MyTardisAuthentication
+from tardis.tardis_portal.api import default_authentication
 
 import tasks
 
 logger = logging.getLogger(__name__)
 
 # we use the same custom tastypie Authentication class used by the core REST API
-authentication = MyTardisAuthentication()
+authentication = default_authentication
 
 
 def require_authentication(f):

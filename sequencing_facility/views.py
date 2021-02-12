@@ -264,7 +264,7 @@ def _format_read_count_summary(fastqc_summary):
 
 
 class FastqDatasetView(DatasetView):
-    template_name = 'view_project_dataset.html'
+    template_name = 'sequencing_facility/view_project_dataset.html'
 
     def get_context_data(self, request, dataset, **kwargs):
         c = super(FastqDatasetView, self).get_context_data(request,
@@ -460,7 +460,7 @@ def _is_in_group(user, group_names):
 
 
 class SequencingFacilityIndexView(IndexView):
-    template_name = 'index.html'
+    template_name = 'sequencing_facility/index.html'
 
     @use_rapid_connect
     def get_context_data(self, request, **kwargs):

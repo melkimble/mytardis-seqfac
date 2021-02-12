@@ -1,18 +1,19 @@
 from tastypie.contrib.contenttypes.fields import GenericForeignKeyField
 from tastypie.exceptions import Unauthorized
 
-from tardis.tardis_portal import api as tardis_api
+#from tardis.tardis_portal import api as tardis_api
 
 from tardis.tardis_portal.models.experiment import Experiment
 from tardis.tardis_portal.models.parameters import ParameterName
 from tardis.tardis_portal.models.access_control import ObjectACL
 from tardis.tardis_portal.auth.decorators import has_delete_permissions
 from tardis.tardis_portal.auth.decorators import has_write_permissions
+from tardis.tardis_portal.api import default_authentication
 
-default_authentication = tardis_api.MyTardisAuthentication()
+#default_authentication = tardis_api.MyTardisAuthentication()
 
 
-class AppACLAuthorization(tardis_api.ACLAuthorization):
+class AppACLAuthorization(tardis.tardis_portal.api.ACLAuthorization):
     """
     Authorisation class for Tastypie.
     Subclasses default MyTardis API authorization to add permission for
@@ -45,13 +46,13 @@ class AppACLAuthorization(tardis_api.ACLAuthorization):
 
 
 # this class name must end in AppResource to be detected by tardis.urls
-class ExperimentAppResource(tardis_api.ExperimentResource):
+class ExperimentAppResource(tardis.tardis_portal.api.ExperimentResource):
     """
     Extends MyTardis's RESTful API for Experiments to allow queries to retrieve
     experiment records by matching parameter values.
     """
 
-    class Meta(tardis_api.ExperimentResource.Meta):
+    class Meta(tardis.tardis_portal.api.ExperimentResource.Meta):
         # This will be mapped to <app_name>_experiment by MyTardis's urls.py
         # (eg /api/v1/sequencing_facility_experiment/)
         resource_name = 'experiment'
@@ -126,8 +127,8 @@ class ExperimentAppResource(tardis_api.ExperimentResource):
 
             return expts
 
-        return super(tardis_api.ExperimentResource, self).obj_get_list(bundle,
-                                                                       **kwargs)
+        return super(tardis.tardis_portal.api.ExperimentResource, self).obj_get_list(bundle,
+                                                                                     **kwargs)
 
 
 # TODO: This is a temporary subclass of ObjectACLResource to allow
@@ -135,7 +136,7 @@ class ExperimentAppResource(tardis_api.ExperimentResource):
 #       added to MyTardis develop, this class can be removed (and clients
 #       updated to use /api/v1/objectacl/ instead of
 #       /api/v1/sequencing_facility_objectacl/
-class ObjectACLAppResource(tardis_api.ObjectACLResource):
+class ObjectACLAppResource(tardis.tardis_portal.api.ObjectACLResource):
     content_object = GenericForeignKeyField({
         Experiment: tardis_api.ExperimentResource,
         # ...

@@ -492,7 +492,7 @@ $('#modal-metadata .submit-button').live('click', function() {
     <br/>
         {% if overall_stats %}
         <h3>Project Statistics</h3>
-        {% include "overall_stats_table.html" %}
+        {% include "sequencing_facility/overall_stats_table.html" %}
         <br/><br/>
         {% endif %}
 
@@ -516,7 +516,7 @@ $('#modal-metadata .submit-button').live('click', function() {
                  aria-labelledby="raw-read-summary-table-heading"
                  id="raw-read-summary-table">
             <div class="panel-body">
-                {% include "sample_stats_table.html" %}
+                {% include "sequencing_facility/sample_stats_table.html" %}
             </div>
             </div>
         </div>
@@ -551,7 +551,7 @@ $('#modal-metadata .submit-button').live('click', function() {
                     </p>
                     <p><a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">
                         FastQC</a> version: {{ fastqc_version }}</p>
-                    {% include "fastq_project_summary_table.html" %}
+                    {% include "sequencing_facility/fastq_project_summary_table.html" %}
                 </div>
             </div>
         </div>
