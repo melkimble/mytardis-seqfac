@@ -15,7 +15,7 @@ from tardis.tardis_portal.models import Experiment, ObjectACL, DataFile
 #from tardis.tardis_portal.api import MyTardisAuthentication
 from tardis.tardis_portal.api import default_authentication
 
-import tasks
+from .tasks import delete_all_trashed_task
 
 logger = logging.getLogger(__name__)
 
@@ -257,7 +257,7 @@ def trash_experiment(request, experiment_id=None):
 def _delete_all_trashed(request):
     try:
         # tasks.delete_all_trashed_task.delay()
-        tasks.delete_all_trashed_task()
+        delete_all_trashed_task()
 
     except Exception as e:
         return jsend_fail_response('Delete operation failed. '
