@@ -59,3 +59,4 @@ target/
 # GitEye files
 .idea
 /.project
+ngsenv/

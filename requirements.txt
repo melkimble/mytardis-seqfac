@@ -3,4 +3,4 @@ boto>=2.48.0
 # MyTardis default bleach is broken
 bleach>=2.0.0
 celery[redis]
--e hg+https://bitbucket.org/pansapiens/django-storages#egg=django-storages
+#-e hg+https://bitbucket.org/pansapiens/django-storages#egg=django-storages
