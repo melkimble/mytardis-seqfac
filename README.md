@@ -5,7 +5,7 @@ git clone https://github.com/melkimble/mytardis-seqfac sequencing_facility
 
 pip install -r requirements.txt
 
-INSTALLED_APPS += ('tardis.apps.mydata',)
+INSTALLED_APPS += ('tardis.apps.sequencing_facility',)
 
 python manage.py loaddata tardis/apps/sequencing_facility/fixtures/sequencing_facility_schema.json
 python manage.py loaddata tardis/apps/sequencing_facility/fixtures/instrument.json

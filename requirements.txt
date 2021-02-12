@@ -2,5 +2,5 @@ numpy
 boto>=2.48.0
 # MyTardis default bleach is broken
 bleach>=2.0.0
-celery[redis]
+#celery[redis]
 #-e hg+https://bitbucket.org/pansapiens/django-storages#egg=django-storages

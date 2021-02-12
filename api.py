@@ -29,7 +29,7 @@ class AppACLAuthorization(tardis.tardis_portal.api.ACLAuthorization):
                    has_write_permissions(bundle.request,
                                           bundle.obj.object_id)
 
-        return super(tardis_api.ACLAuthorization,
+        return super(tardis.tardis_portal.api.ACLAuthorization,
                      self).delete_list(object_list, bundle)
 
     def delete_detail(self, object_list, bundle):
@@ -41,7 +41,7 @@ class AppACLAuthorization(tardis.tardis_portal.api.ACLAuthorization):
                    has_write_permissions(bundle.request,
                                           bundle.obj.object_id)
 
-        return super(tardis_api.ACLAuthorization,
+        return super(tardis.tardis_portal.api.ACLAuthorization,
                      self).delete_detail(object_list, bundle)
 
 
@@ -138,11 +138,11 @@ class ExperimentAppResource(tardis.tardis_portal.api.ExperimentResource):
 #       /api/v1/sequencing_facility_objectacl/
 class ObjectACLAppResource(tardis.tardis_portal.api.ObjectACLResource):
     content_object = GenericForeignKeyField({
-        Experiment: tardis_api.ExperimentResource,
+        Experiment: tardis.tardis_portal.api.ExperimentResource,
         # ...
     }, 'content_object')
 
-    class Meta(tardis_api.ObjectACLResource.Meta):
+    class Meta(tardis.tardis_portal.api.ObjectACLResource.Meta):
         # This will be mapped to <app_name>_experiment by MyTardis's urls.py
         # (eg /api/v1/sequencing_facility_objectacl/)
         resource_name = 'objectacl'
