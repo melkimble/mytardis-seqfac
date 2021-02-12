@@ -19,7 +19,7 @@ from tardis.tardis_portal.models import Experiment, ExperimentParameter, \
     License, UserProfile, UserAuthentication, Token
 from tardis.tardis_portal.shortcuts import render_response_index, \
     return_response_error, return_response_not_found, \
-    render_response_search, get_experiment_referer
+    get_experiment_referer
 from tardis.tardis_portal.views.utils import _add_protocols_and_organizations
 # from tardis.tardis_portal.views.pages import index_context
 from tardis.tardis_portal.download import view_datafile
