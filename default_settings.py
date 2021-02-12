@@ -14,7 +14,7 @@ DATASET_VIEWS = [
 ]
 
 FACILITY_MANAGER_GROUPS = ['mhtp-facility-managers']
-TRASH_USERNAME = '__trashman__'
+TRASH_USERNAME = '__trashuser__'
 TRASH_GROUP_NAME = '__trashcan__'
 
 NGS_PUBLICATION_DATASET_SCHEMA = 'http://www.tardis.org.au/pub/ngs/datasets/'

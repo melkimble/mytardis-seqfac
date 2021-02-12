@@ -2,21 +2,15 @@ import logging
 from os import path
 from django.conf import settings
 from django.db import transaction
-from django.contrib.auth.models import User, Group, ContentType
+from django.contrib.auth.models import User, Group
 from django.core.exceptions import PermissionDenied
 
-from django.http import HttpRequest, HttpResponseRedirect, HttpResponse, \
-    HttpResponseForbidden, HttpResponseNotFound, JsonResponse, \
-    HttpResponseNotAllowed, HttpResponseServerError
+from django.http import HttpRequest, JsonResponse, \
+    HttpResponseNotAllowed
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import user_passes_test
 
-from tardis.tardis_portal.auth import decorators as authz
-from tardis.tardis_portal.models import Experiment, ExperimentParameter, \
-    DatafileParameter, DatasetParameter, ObjectACL, DataFile, \
-    DatafileParameterSet, ParameterName, GroupAdmin, Schema, \
-    Dataset, ExperimentParameterSet, DatasetParameterSet, \
-    License, UserProfile, UserAuthentication, Token
+from tardis.tardis_portal.models import Experiment, ObjectACL, DataFile
 
 #from tardis.tardis_portal.api import MyTardisAuthentication
 from tardis.tardis_portal.api import default_authentication
@@ -108,7 +102,7 @@ def stats_ingestion_timeline(request):
 
             return json.JSONEncoder.default(self, o)
 
-    trash_username = '__trashman__'
+    trash_username = '__trashuser__'
     format = request.GET.get('format', 'json').lower().strip()
     include_titles = ('include_titles' in request.GET)
 
@@ -193,7 +187,7 @@ def trash_experiment(request, experiment_id=None):
         return jsend_fail_response('Experiment %s not found' % experiment_id,
                                    404, {'id': experiment_id})
 
-    trash_username = getattr(settings, 'TRASH_USERNAME', '__trashman__')
+    trash_username = getattr(settings, 'TRASH_USERNAME', '__trashuser__')
     trash_group_name = getattr(settings, 'TRASH_GROUP_NAME', '__trashcan__')
 
     try:

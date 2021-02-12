@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 @tardis_app.task(name='tardis_portal.delete_all_trashed')
 def delete_all_trashed_task():
-    trash_username = getattr(settings, 'TRASH_USERNAME', '__trashman__')
+    trash_username = getattr(settings, 'TRASH_USERNAME', '__trashuser__')
     trashman_id = User.objects.get(username=trash_username).id
     expt_ct = ContentType.objects.get(model='experiment').id
     trashed = ObjectACL.objects.filter(pluginId='django_user',
