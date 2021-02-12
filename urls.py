@@ -7,7 +7,7 @@ from .custom_api import get_version_json, trash_experiment, \
 
 # urlpatterns = patterns('')
 
-seqfac_urls = [
+urlpatterns = [
     # url(r'^results/(?P<path>.*)$', 'django.views.static.serve', {
     #     'document_root': settings.WEBCACHE_FILE_PATH,
     # }),
