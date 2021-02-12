@@ -15,7 +15,7 @@ from tardis.tardis_portal.models import Experiment, ObjectACL, DataFile
 #from tardis.tardis_portal.api import MyTardisAuthentication
 from tardis.tardis_portal.api import default_authentication
 
-import tasks
+import .tasks
 
 logger = logging.getLogger(__name__)
 
