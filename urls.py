@@ -1,7 +1,8 @@
 import django
 from django.conf import settings
 from django.conf.urls import url
-from .views import view_fastqc_html_report, get_version_json, trash_experiment,\
+from .views import view_fastqc_html_report
+from .custom_api import get_version_json, trash_experiment, \
     _delete_all_trashed, stats_ingestion_timeline
 
 # urlpatterns = patterns('')
